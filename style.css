@@ -1,0 +1,211 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+*:active {
+    border: none !important;
+    background-color: transparent !important;
+    color: transparent;
+}
+
+*:focus {
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
+
+.card {
+    width: 300px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.boxLeft,
+.boxRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px 0;
+    width: 50%;
+    flex-wrap: wrap;
+}
+
+.boxLeft {
+    /* Removed float as it's not needed with flexbox */
+    justify-content: flex-start;
+}
+
+.boxRight {
+    /* Removed float as it's not needed with flexbox */
+    justify-content: flex-end;
+}
+
+.footer {
+    /* Removed float as it's not needed with flexbox */
+    justify-content: flex-start;
+}
+
+.card img.avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: #666 1px solid;
+}
+
+.card i {
+    font-size: 1.5em;
+    color: #2b2b2b;
+}
+
+.card .boxLeft i:hover,
+.card .boxRight i:hover {
+    color: rgb(136, 136, 136);
+}
+
+.card button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.card .like-button i:hover {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        color: red;
+    }
+
+    50% {
+        transform: scale(1.1);
+        color: red;
+    }
+
+    100% {
+        transform: scale(1);
+        color: red;
+    }
+}
+
+.card .heart {
+    color: black;
+    font-size: 1em;
+}
+
+.card .imgBox img {
+    border-radius: 8px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card .profile-img {
+    width: 100%;
+    height: auto;
+}
+
+.card .user-info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.card .follow {
+    color: rgb(1, 170, 182);
+    font-size: 0.6em;
+    text-decoration: none;
+    font-weight: bold;
+    border: rgb(1, 170, 182) 1px solid;
+    border-radius: 3px;
+    padding: 3px 15px;
+}
+
+.card .follow:hover {
+    color: rgb(215, 30, 240);
+    border: rgb(215, 30, 240) 1px solid;
+}
+
+.card .txt {
+    color: #2b2b2b;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.card .txt2,
+.card .qtdeLikes {
+    color: #666;
+    font-size: 0.8em;
+}
+
+.card .hastag {
+    color: rgb(1, 170, 182);
+    font-size: 0.8em;
+    margin-right: 5px;
+}
+
+.card .id {
+    display: none;
+}
+
+.mark-button.active {
+    color: #00BF00;
+    /* Adicione outros estilos desejados quando o botão estiver ativo */
+}
+
+@media all and (min-width: 200px) and (max-width: 250px) {
+    .card {
+        width: 150px;
+        margin: 5px 20px;
+    }
+
+    .card .imgBox img {
+        height: 150px;
+
+    }
+
+}
+
+@media all and (min-width: 251px) and (max-width: 350px) {
+    .card {
+        width: 200px;
+        margin: 5px 20px;
+    }
+
+    .card .imgBox img {
+        height: 200px;
+
+    }
+
+}
+
+@media all and (min-width: 351px) and (max-width: 370px) {
+    .card {
+        width: 250px;
+        margin: 5px 20px;
+    }
+
+    .card .imgBox img {
+        height: 250px;
+
+    }
+
+}

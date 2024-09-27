@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil do Instagram</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <script type="module" defer>
+    import { faker } from "https://cdn.jsdelivr.net/npm/@faker-js/faker@8.0.1/+esm";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const mainElement = document.querySelector("main");
+
+      // Função para gerar um cartão
+      const gerarCard = () => {
+        const nome = faker.person.firstName();
+        const avatar = faker.image.avatar();
+        const randomImage = faker.image.urlPicsumPhotos();
+        const randomValue = faker.number.int({ min: 1000, max: 9999 });
+
+        return `
+                <div class="card">
+                    <div class="boxLeft">
+                        <img class="avatar" src="${avatar}" alt="Avatar de ${nome}" title="avatar">
+                        <span class="nome txt">${nome}</span>
+                    </div>
+                    <div class="boxRight">
+                        <a class="follow" href="#" target="_blank">FOLLOW</a>
+                        <button class="menu">
+                          <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="imgBox">
+                        <img class="profile-img" src="${randomImage}" alt="Instagram" title="Instagram" />
+                    </div>
+                    <div class="boxLeft">
+                        <button class="like-button">
+                          <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        </button>
+                        <button class="message">
+                          <i class="fa fa-comment-o" aria-hidden="true"></i>
+                        </button>
+                        <button class="share">
+                          <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="boxRight">
+                        <button class="mark-button">
+                          <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="user-info">
+                        <div class="boxLeft">
+                          <i class="fa fa-heart heart" aria-hidden="true"></i>
+                          <span class="qtdeLikes">362</span><span class="txt2">likes</span>
+                        </div>
+                        <div class="footer">
+                          <span class="txt2">your title here</span>
+                          <span class="hastag">#hashtag</span>
+                          <span class="hastag">#loremipsum</span>
+                          <span class="id">${randomValue}</span>
+                        </div>
+                    </div>
+                </div>`;
+      };
+
+      // Adiciona os cards ao DOM
+      for (let i = 0; i < 15; i++) {
+        const cardHTML = gerarCard();
+        mainElement.insertAdjacentHTML("beforeend", cardHTML);
+
+        // Seleciona o último card inserido
+        const cards = document.querySelectorAll(".card");
+        const lastCard = cards[cards.length - 1];
+
+        // Adiciona os ouvintes de evento para o último card inserido
+
+        // Evento de clique para o botão de like
+        const buttonLike = lastCard.querySelector(".like-button");
+        buttonLike.addEventListener("click", () => {
+          const spanLikes = lastCard.querySelector(".qtdeLikes");
+          const heart = lastCard.querySelector(".fa-heart");
+          let currentLikes = parseInt(spanLikes.textContent || "0", 10);
+
+          buttonLike.classList.toggle("liked");
+          const isLiked = buttonLike.classList.contains("liked");
+
+          spanLikes.textContent = (currentLikes + (isLiked ? 1 : -1)).toString();
+          heart.style.color = isLiked ? "red" : "";
+        });
+
+        // Evento de clique para o botão de marcar
+        const buttonMark = lastCard.querySelector(".mark-button");
+        buttonMark.addEventListener("click", () => {
+          buttonMark.querySelector("i").style.color = "#00BF00";
+        });
+
+        // Evento de clique para o botão de mensagem
+        const buttonMessage = lastCard.querySelector(".message");
+        buttonMessage.addEventListener("click", () => {
+          const message = prompt("Digite sua mensagem:");
+          if (message) {
+            console.log(`Mensagem enviada: ${message}`);
+          }
+        });
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <main></main>
+  <script src="index.js"></script>
+</body>
+</html>
