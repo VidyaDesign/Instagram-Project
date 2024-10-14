@@ -25,7 +25,7 @@ Os usuários podem comentar nos perfis através de um prompt, incentivando a int
 - Faker.js
 
 ## Autor
-- **Mahavidya**: A criadora deste projeto, comprometida em desenvolver soluções criativas e educativas no campo do desenvolvimento web.
+- **Mahavidya**: A criadora deste projeto está comprometida em desenvolver soluções criativas e educativas no campo do desenvolvimento web.
 
 ## Aprendizados
 Este projeto é uma ótima maneira de aprender sobre a construção de interfaces dinâmicas e entender melhor como funcionam as interações em aplicações de redes sociais. Ao contribuir, você também terá a oportunidade de aprimorar suas habilidades de programação e desenvolvimento.
